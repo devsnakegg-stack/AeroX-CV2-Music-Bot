@@ -1,0 +1,57 @@
+const { ContainerBuilder, TextDisplayBuilder, MessageFlags } = require('discord.js');
+const { hexToDecimal } = require('../helpers/colorHelper');
+const { hasControlPermission } = require('../helpers/musicHelpers');
+const emojis = require('../emojis.json');
+
+module.exports = {
+    name: 'autoplay',
+    description: 'Enable or disable autoplay',
+    aliases: ['ap'],
+
+    async execute(message, args) {
+        const { client, member, guild } = message;
+        
+        if (!member.voice.channel) {
+            const container = new ContainerBuilder()
+                .addTextDisplayComponents(new TextDisplayBuilder().setContent(`${emojis.error} You need to be in a voice channel!`));
+            return message.reply({ components: [container], flags: MessageFlags.IsPersistent | MessageFlags.IsComponentsV2 });
+        }
+
+        const player = client.aqua.players.get(guild.id);
+        
+        if (!player) {
+            const container = new ContainerBuilder()
+                .addTextDisplayComponents(new TextDisplayBuilder().setContent(`${emojis.error} No music is currently playing!`));
+            return message.reply({ components: [container], flags: MessageFlags.IsPersistent | MessageFlags.IsComponentsV2 });
+        }
+
+        if (member.voice.channel.id !== player.voiceChannel) {
+            const container = new ContainerBuilder()
+                .addTextDisplayComponents(new TextDisplayBuilder().setContent(`${emojis.error} You must be in the same voice channel as the bot!`));
+            return message.reply({ components: [container], flags: MessageFlags.IsPersistent | MessageFlags.IsComponentsV2 });
+        }
+
+        if (!hasControlPermission(message, player)) {
+            const container = new ContainerBuilder()
+                .addTextDisplayComponents(new TextDisplayBuilder().setContent(`${emojis.error} Only the requester, admins, or server managers can control the music!`));
+            return message.reply({ components: [container], flags: MessageFlags.IsPersistent | MessageFlags.IsComponentsV2 });
+        }
+
+        const newState = !player.isAutoplayEnabled;
+        player.setAutoplay(newState);
+        const status = newState ? 'enabled' : 'disabled';
+        
+        const container = new ContainerBuilder()
+            .addTextDisplayComponents(new TextDisplayBuilder().setContent(`${emojis.autoplay} Autoplay ${status}.`));
+        
+        return message.reply({ components: [container], flags: MessageFlags.IsPersistent | MessageFlags.IsComponentsV2 });
+    },
+};
+
+/*
+: ! Aegis !
+    + Discord: itsfizys
+    + Portfolio: https://itsfiizys.com
+    + Community: https://discord.gg/8wfT8SfB5Z  (Quo Development )
+    + for any queries reach out Community or DM me.
+*/

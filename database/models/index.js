@@ -8,6 +8,7 @@ const Favorite = require('./Favorite');
 const Playlist = require('./Playlist');
 const PlaylistTrack = require('./PlaylistTrack');
 const NoPrefix = require('./NoPrefix');
+const GuildSetting = require('./GuildSetting');
 
 
 const models = {
@@ -15,6 +16,7 @@ const models = {
     Playlist,
     PlaylistTrack,
     NoPrefix,
+    GuildSetting,
     sequelize
 };
 
@@ -37,6 +39,6 @@ module.exports = models;
 : ! Aegis !
     + Discord: itsfizys
     + Portfolio: https://itsfiizys.com
-    + Community: https://discord.gg/8wfT8SfB5Z  (AeroX Development )
+    + Community: https://discord.gg/8wfT8SfB5Z  (Quo Development )
     + for any queries reach out Community or DM me.
 */

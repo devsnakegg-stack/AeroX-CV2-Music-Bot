@@ -48,6 +48,6 @@ module.exports = Favorite;
 : ! Aegis !
     + Discord: itsfizys
     + Portfolio: https://itsfiizys.com
-    + Community: https://discord.gg/8wfT8SfB5Z  (AeroX Development )
+    + Community: https://discord.gg/8wfT8SfB5Z  (Quo Development )
     + for any queries reach out Community or DM me.
 */

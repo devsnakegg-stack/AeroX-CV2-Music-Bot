@@ -1,17 +1,17 @@
 <div align="center">
 
-# 🎵 AeroX Music
+# 🎵 Quo Music
 
-![AeroX Music](https://img.shields.io/badge/AeroX-Music%20Bot-5865F2?style=for-the-badge&logo=discord&logoColor=white)
+![Quo Music](https://img.shields.io/badge/Quo-Music%20Bot-5865F2?style=for-the-badge&logo=discord&logoColor=white)
 ![Version](https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge)
 ![Node.js](https://img.shields.io/badge/Node.js-14+-339933?style=for-the-badge&logo=node.js&logoColor=white)
 ![Discord.js](https://img.shields.io/badge/Discord.js-v14-5865F2?style=for-the-badge&logo=discord&logoColor=white)
 
 **High-Quality • Fast • Reliable**
 
-A powerful Discord music bot with LavaLink integration, featuring support for YouTube and Spotify, playlists, favorites, and much more!
+A powerful Discord music bot with LavaLink integration, featuring support for YouTube, Spotify, SoundCloud, Apple Music, playlists, favorites, and much more!
 
-[**Discord Server**](https://discord.gg/8wfT8SfB5Z) • [**Report Bug**](https://github.com/AeroX-Development/AeroX-Music/issues) • [**Request Feature**](https://github.com/AeroX-Development/AeroX-Music/issues)
+[**Discord Server**](https://discord.gg/8wfT8SfB5Z) • [**Report Bug**](https://github.com/Quo-Development/Quo-Music/issues) • [**Request Feature**](https://github.com/Quo-Development/Quo-Music/issues)
 
 </div>
 
@@ -23,8 +23,8 @@ A powerful Discord music bot with LavaLink integration, featuring support for Yo
 
 **Please read carefully before using this project:**
 
-- ❌ **DO NOT** publicly distribute, showcase, or upload this project on YouTube, social media, or any other platforms without explicit permission from AeroX Development
-- ❌ **DO NOT** remove or modify the credits and attribution to AeroX Development and the developer
+- ❌ **DO NOT** publicly distribute, showcase, or upload this project on YouTube, social media, or any other platforms without explicit permission from Quo Development
+- ❌ **DO NOT** remove or modify the credits and attribution to Quo Development and the developer
 - ✅ You may use this bot for personal or private servers
 - ✅ You may modify the code for your own use while keeping credits intact
 - 📧 For permission to showcase or distribute publicly, contact us via our [Discord Server](https://discord.gg/8wfT8SfB5Z)
@@ -36,7 +36,7 @@ A powerful Discord music bot with LavaLink integration, featuring support for Yo
 ## ✨ Features
 
 - 🎶 **High-Quality Music Playback** - Powered by LavaLink for the best audio quality
-- 🎵 **Multi-Platform Support** - Play from YouTube and Spotify
+- 🎵 **Multi-Platform Support** - Play from YouTube, Spotify, SoundCloud, and Apple Music
 - 📝 **Playlist Management** - Create, save, and share custom playlists
 - ⭐ **Favorites System** - Save your favorite tracks for quick access
 - 🎼 **Queue Management** - Full control over your music queue
@@ -45,9 +45,9 @@ A powerful Discord music bot with LavaLink integration, featuring support for Yo
 - 🔄 **Loop Modes** - Loop single tracks or entire queues
 - ⏯️ **Playback Controls** - Play, pause, skip, shuffle, and more
 - 🎲 **Autoplay** - Automatically queue similar songs when the queue ends
-- 🖼️ **Beautiful Music Cards** - Custom artwork for now playing displays
 - ⚡ **Slash Commands** - Modern Discord slash command support
 - 📌 **Prefix Commands** - Traditional prefix commands (`,` by default)
+- ♾️ **24/7 Mode** - Keep the bot in the voice channel forever
 
 ---
 
@@ -93,6 +93,8 @@ A powerful Discord music bot with LavaLink integration, featuring support for Yo
 - `/filter` - Apply audio filters
 - `/loop` - Set loop mode (off/track/queue)
 - `/autoplay` - Toggle autoplay mode
+- `/247` - Toggle 24/7 mode
+- `/setsource` - Set default search source
 
 ### ℹ️ Information
 - `/help` - Display help information
@@ -105,7 +107,7 @@ A powerful Discord music bot with LavaLink integration, featuring support for Yo
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) v84 or higher
+- [Node.js](https://nodejs.org/) v16 or higher
 - A Discord bot token ([Create one here](https://discord.com/developers/applications))
 - LavaLink server (see [LavaLink Setup](#-lavalink-setup))
 - (Optional) Spotify API credentials
@@ -115,8 +117,8 @@ A powerful Discord music bot with LavaLink integration, featuring support for Yo
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/AeroX-Development/AeroX-Music.git
-   cd AeroX-Music
+   git clone https://github.com/Quo-Development/Quo-Music.git
+   cd Quo-Music
    ```
 
 2. **Install dependencies**
@@ -148,11 +150,10 @@ A powerful Discord music bot with LavaLink integration, featuring support for Yo
 
 4. **Configure bot settings**
    
-   Edit `AeroX-Music/config.js` to customize your bot:
+   Edit `Quo/config.js` to customize your bot:
    - Change the prefix (default: `,`)
    - Adjust playlist limits
    - Configure default music platform
-   - Set artwork style
 
 5. **Start the bot**
    ```bash
@@ -163,7 +164,7 @@ A powerful Discord music bot with LavaLink integration, featuring support for Yo
 
 ## 🎸 LavaLink Setup
 
-AeroX Music requires a LavaLink server to function. You have two options:
+Quo Music requires a LavaLink server to function. You have two options:
 
 ### Option 1: Use a Public LavaLink Server
 You can use free public LavaLink servers (not recommended for production):
@@ -177,35 +178,10 @@ You can use free public LavaLink servers (not recommended for production):
 
 ---
 
-## 🎨 Customization
-
-### Changing the Prefix
-Edit `AeroX-Music/config.js`:
-```javascript
-PREFIX: '!',  // Change to your desired prefix
-```
-
-### Adjusting Playlist Limits
-```javascript
-MUSIC: {
-    PLAYLIST_LIMIT: 3,  // Maximum number of playlists per user
-}
-```
-
-### Artwork Style
-Choose between `MusicCard` (custom image card) or `Banner` (media gallery):
-```javascript
-MUSIC: {
-    ARTWORK_STYLE: 'MusicCard'  // or 'Banner'
-}
-```
-
----
-
 ## 📁 Project Structure
 
 ```
-AeroX-Music/
+Quo/
 ├── commands/           # Slash commands
 ├── pCommands/          # Prefix commands
 ├── music/              # Music client and event handlers
@@ -233,10 +209,6 @@ AeroX-Music/
 - Check LavaLink credentials in `.env`
 - Ensure the bot has `Connect` and `Speak` permissions in voice channels
 
-### Spotify links don't work
-- Add your Spotify Client ID and Secret to `.env`
-- Get credentials from [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
-
 ---
 
 ## 🤝 Contributing
@@ -255,7 +227,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ### Development Team
 
-**AeroX Music** is developed and maintained by **[AeroX Development](https://discord.gg/8wfT8SfB5Z)**
+**Quo Music** is developed and maintained by **[Quo Development](https://discord.gg/8wfT8SfB5Z)**
 
 #### Lead Developer
 - **Aegis** (itsfizys)
@@ -264,12 +236,12 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ### Built With
 - [Discord.js](https://discord.js.org/) - Discord API library
-- [Poru](https://github.com/parasop/poru) - LavaLink client
+- [AquaLink](https://github.com/ToddyTheNoobDud/AquaLink) - LavaLink client
 - [LavaLink](https://github.com/lavalink-devs/Lavalink) - Audio delivery server
 - [Sequelize](https://sequelize.org/) - Database ORM
 
 ### Special Thanks
-- AeroX Development community for testing and feedback
+- Quo Development community for testing and feedback
 - All contributors who helped improve this project
 
 ---
@@ -298,7 +270,7 @@ This bot is for educational and entertainment purposes. Please respect copyright
 
 <div align="center">
 
-**Made with ❤️ by [AeroX Development](https://discord.gg/8wfT8SfB5Z)**
+**Made with ❤️ by [Quo Development](https://discord.gg/8wfT8SfB5Z)**
 
 [![Discord](https://img.shields.io/badge/Join-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/8wfT8SfB5Z)
 [![Portfolio](https://img.shields.io/badge/Visit-Portfolio-FF6B6B?style=for-the-badge&logo=google-chrome&logoColor=white)](https://itsfiizys.com)
